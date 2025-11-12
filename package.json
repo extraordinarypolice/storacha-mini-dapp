@@ -2,7 +2,7 @@
   "name": "storacha-mini-dapp",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://extraordinarypolice.github.io/storacha-mini-app/",
+  "homepage": "https://extraordinarypolice.github.io/storacha-mini-dapp/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
