@@ -2,11 +2,10 @@
   "name": "storacha-backend",
   "version": "1.0.0",
   "type": "module",
-  "scripts": {
-    "build": "echo 'No build needed'",
-    "start": "echo 'Handled by Vercel'"
-  },
   "dependencies": {
-    "@storacha/client": "^1.8.15"
+    "@storacha/client": "^1.8.15",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0"
   }
 }
