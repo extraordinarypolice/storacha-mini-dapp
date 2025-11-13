@@ -3,9 +3,12 @@ import * as Proof from "@storacha/client/proof";
 import { Signer } from "@storacha/client/principal/ed25519";
 import { StoreMemory } from "@storacha/client/stores/memory";
 
+/**
+ * Vercel Serverless handler (GET /api/delegation?did=<DID>)
+ */
 export default async function handler(req, res) {
   try {
-    const did = req.query.did;
+    const did = Array.isArray(req.query.did) ? req.query.did[0] : req.query.did;
     if (!did) return res.status(400).json({ error: "Missing ?did param" });
 
     const principal = Signer.parse(process.env.STORACHA_PRINCIPAL);
@@ -30,7 +33,7 @@ export default async function handler(req, res) {
 
     const archive = await delegation.archive();
     res.setHeader("Content-Type", "application/octet-stream");
-    res.send(archive.ok);
+    res.status(200).send(archive.ok);
   } catch (err) {
     console.error("delegation error:", err);
     res.status(500).json({ error: err.message });
